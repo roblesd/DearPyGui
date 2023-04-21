@@ -1406,8 +1406,9 @@ void mvDrawRect::draw(ImDrawList* drawlist, float x, float y)
 
 	if (ImPlot::GetCurrentContext()->CurrentPlot)
 	{
-		if (_multicolor)
-			drawlist->AddRectFilledMultiColor(ImPlot::PlotToPixels(tpmin), ImPlot::PlotToPixels(tpmax), _color_bottom_right, _color_bottom_left, _color_upper_left, _color_upper_right);
+		if (_multicolor){
+			drawlist->AddRectFilledMultiColor(ImPlot::PlotToPixels(tpmin), ImPlot::PlotToPixels(tpmax), _color_upper_left, _color_upper_right, _color_bottom_right, _color_bottom_left);
+		}
 		else if (_fill.r >= 0.0f)
 			drawlist->AddRectFilled(ImPlot::PlotToPixels(tpmin), ImPlot::PlotToPixels(tpmax), _fill, ImPlot::GetCurrentContext()->Mx * _rounding, ImDrawCornerFlags_All);
 		drawlist->AddRect(ImPlot::PlotToPixels(tpmin), ImPlot::PlotToPixels(tpmax), _color,
